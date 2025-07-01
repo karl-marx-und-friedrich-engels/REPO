@@ -3,349 +3,246 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>REPO Monster Übersicht – detailliert</title>
+  <title>REPO Monster Übersicht</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #F5F1EA; color: #3B3B3B; padding: 20px; max-width: 1400px; margin: auto; }
-    h1 { text-align: center; color: #8B5E3C; margin-bottom: 40px; }
-    .monster-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; }
-    .monster { background: #B0A79F; border: 1px solid #4B342B; border-radius: 10px; padding: 20px; transition: transform .3s ease; }
-    .monster:hover { transform: scale(1.03); box-shadow: 0 0 15px #4B342B; }
-    .monster img { width:100%; height:250px; object-fit:cover; border-radius:10px; border:2px solid #4B342B; margin-bottom:15px; }
-    .monster h2 { color:#8B5E3C; margin:0 0 10px; }
-    .info, .category { background:#F5F1EA; padding:8px; margin-bottom:8px; border-left:4px solid #8B5E3C; font-size:0.95em; }
-    .stats { font-size:0.95em; line-height:1.5; }
-    .stats strong { display:inline-block; width:120px; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #F5F1EA;
+      color: #3B3B3B;
+      padding: 20px;
+      max-width: 1400px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #8B5E3C;
+      margin-bottom: 40px;
+    }
+    .monster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 20px;
+    }
+    .monster {
+      background-color: #B0A79F;
+      border: 1px solid #4B342B;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .monster:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #4B342B;
+    }
+    .monster img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #4B342B;
+      margin-bottom: 15px;
+      object-fit: cover;
+      height: 250px;
+    }
+    .monster h2 {
+      margin-top: 0;
+      color: #8B5E3C;
+    }
+    .info {
+      background-color: #F5F1EA;
+      border-left: 4px solid #8B5E3C;
+      padding-left: 10px;
+      margin-bottom: 10px;
+      font-size: 0.95em;
+      line-height: 1.4;
+      color: #3B3B3B;
+    }
+    .category {
+      font-weight: bold;
+      color: #4B342B;
+    }
+    .stats {
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+    .main-button {
+      display: inline-block;
+      background-color: #8B5E3C;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .main-button:hover {
+      background-color: #a96b45;
+    }
   </style>
 </head>
 <body>
-  <h1>REPO – Monster Übersicht (detailliert)</h1>
-  <div class="monster-grid">
 
-    <!-- Animal -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20105331.png?raw=true" alt="Animal" />
-      <h2>Animal</h2>
-      <p class="info"><strong>Beschreibung:</strong> Humanoides Wesen, scharfe Sinne.</p>
-      <p class="info"><strong>Verhalten:</strong> Streift durch dunkle Korridore, jagt Geräusche.</p>
-      <p class="info category">Bedrohung: Niedrig</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Abstand halten, gezielter Nahkampf<br>
-        <strong>Belohnung:</strong> $2.000–$4.000<br>
-        <strong>Stärke:</strong> 3<br>
-        <strong>Leben:</strong> ~150 HP<br>
-        <strong>Geschwindigkeit:</strong> Schnell<br>
-        <strong>Spawn:</strong> Keller / Versteckte Räume<br>
-        <strong>Beute:</strong> Generisches Loot<br>
-      </div>
-    </div>
+  <a class="main-button" href="main.html" target="_blank">Zur Haupt-Info-Seite</a>
 
-    <!-- Apex Predator -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20105423.png?raw=true" alt="Apex Predator" />
-      <h2>Apex Predator</h2>
-      <p class="info"><strong>Beschreibung:</strong> Entenform, mutiert unter Bedrohung.</p>
-      <p class="info"><strong>Verhalten:</strong> Folgt Spielern, verwandelt sich bei Kontakt.</p>
-      <p class="info category">Bedrohung: Mittel</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Ausweichen, Aggro vermeiden<br>
-        <strong>Belohnung:</strong> $2.000–$3.000<br>
-        <strong>Stärke:</strong> 4<br>
-        <strong>Leben:</strong> ~120 HP<br>
-        <strong>Geschwindigkeit:</strong> Schnell (mutiert sehr schnell)<br>
-        <strong>Spawn:</strong> Offene Räume, Korridore<br>
-        <strong>Beute:</strong> Spieler-Items<br>
-      </div>
-    </div>
+  <h1>REPO – Monster Übersicht</h1>
+  <div class="monster-grid" id="monsterGrid"></div>
 
-    <!-- Huntsman -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20105545.png?raw=true" alt="Huntsman" />
-      <h2>Huntsman</h2>
-      <p class="info"><strong>Beschreibung:</strong> Blinder Schrotflinten-Jäger.</p>
-      <p class="info"><strong>Verhalten:</strong> Reagiert auf Geräusche, ein Treffer = Tod.</p>
-      <p class="info category">Bedrohung: Hoch</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Lautlos bleiben, Noise-Bait nutzen<br>
-        <strong>Belohnung:</strong> $3.000–$7.000<br>
-        <strong>Stärke:</strong> 7<br>
-        <strong>Leben:</strong> ~250 HP<br>
-        <strong>Geschwindigkeit:</strong> Langsam<br>
-        <strong>Spawn:</strong> Industriehallen, Hallways<br>
-        <strong>Beute:</strong> Wertvolle Items<br>
-      </div>
-    </div>
+  <script>
+    const monsters = [
+      {
+        name: "Animal",
+        img: "Screenshot%202025-05-25%20105331.png?raw=true",
+        description: "Ein wildes, humanoides Wesen mit verbesserten Sinnen.",
+        behavior: "Jagt Spieler in dunklen Korridoren.",
+        strategy: "Auf Distanz halten und bei Bedarf mit Nahkampfwaffen bekämpfen.",
+        threat: "Niedrig",
+        reward: "$2.000–$4.000",
+        strength: "3",
+        health: "300"
+      },
+      {
+        name: "Apex Predator",
+        img: "Screenshot%202025-05-25%20105423.png?raw=true",
+        description: "Scheint zunächst wie eine harmlose gelbe Ente, verwandelt sich jedoch bei Bedrohung in ein aggressives Wesen.",
+        behavior: "Folgt dem Spieler und verwandelt sich bei Berührung oder Angriff.",
+        strategy: "Ignorieren oder schnell ausweichen, um die aggressive Form zu vermeiden.",
+        threat: "Mittel",
+        reward: "$2.000–$3.000",
+        strength: "4",
+        health: "250"
+      },
+      {
+        name: "Huntsman",
+        img: "Screenshot%202025-05-25%20105545.png?raw=true",
+        description: "Blinder Jäger mit Schrotflinte.",
+        behavior: "Reagiert auf Geräusche und kann Spieler mit einem Schuss töten.",
+        strategy: "Still bleiben oder Geräusche nutzen, um ihn abzulenken.",
+        threat: "Hoch",
+        reward: "$3.000–$7.000",
+        strength: "7",
+        health: "700"
+      },
+      {
+        name: "Gnome",
+        img: "Screenshot%202025-05-25%20105606.png?raw=true",
+        description: "Kleine Kreaturen, die Spieler und ihre Beute angreifen.",
+        behavior: "Zerstören Beute und greifen in Gruppen an.",
+        strategy: "Aufheben und werfen, um sie zu eliminieren.",
+        threat: "Niedrig",
+        reward: "Keine",
+        strength: "2",
+        health: "120"
+      },
+      {
+        name: "Bowie",
+        img: "Screenshot%202025-05-25%20110118.png?raw=true",
+        description: "Formell gekleideter Stalker, der in der Nähe von Aufzugsschächten erscheint.",
+        behavior: "Verursacht Chaos, indem er Spieler auf scharfe Möbel wirft.",
+        strategy: "Auf Abstand bleiben und Angriffen ausweichen.",
+        threat: "Mittel",
+        reward: "$2.000–$4.000",
+        strength: "5",
+        health: "450"
+      },
+      {
+        name: "Hidden",
+        img: "Screenshot%202025-05-25%20110805.png?raw=true",
+        description: "Fast unsichtbares Wesen, das Spieler entführt.",
+        behavior: "Projiziert dunklen Nebel und hinterlässt Fußspuren.",
+        strategy: "Auf Hinweise achten und mit Nahkampfwaffen angreifen.",
+        threat: "Niedrig",
+        reward: "$3.500–$7.000",
+        strength: "6",
+        health: "320"
+      },
+      {
+        name: "Chef",
+        img: "Screenshot%202025-05-25%20110136.png?raw=true",
+        description: "Froschähnliches Wesen, das in Küchenbereichen mit Hackmessern agiert.",
+        behavior: "Greift mit Hackmessern an und kann Spieler schwer verletzen.",
+        strategy: "Angriffe ausweichen und bei Gelegenheit kontern.",
+        threat: "Mittel",
+        reward: "$2.000–$5.000",
+        strength: "6",
+        health: "400"
+      },
+      {
+        name: "Clown",
+        img: "Screenshot%202025-05-25%20110158.png?raw=true",
+        description: "Lachendes Horrorwesen mit ausfahrbaren, rasiermesserscharfen Gliedmaßen.",
+        behavior: "Extrem gefährlich und kann Spieler in Sekundenschnelle töten.",
+        strategy: "Schnell fliehen und direkte Konfrontation vermeiden.",
+        threat: "Hoch",
+        reward: "$5.000–$8.000",
+        strength: "9",
+        health: "800"
+      },
+      {
+        name: "Rope",
+        img: "Screenshot%202025-05-25%20111047.png?raw=true",
+        description: "Geisterähnliches Wesen, das bei Blickkontakt angreift.",
+        behavior: "Schreit und jagt Spieler bei direktem Blickkontakt.",
+        strategy: "Blickkontakt vermeiden und fliehen.",
+        threat: "Mittel",
+        reward: "$5.000–$8.000",
+        strength: "7",
+        health: "500"
+      },
+      {
+        name: "Headman",
+        img: "Screenshot%202025-05-25%20110852.png?raw=true",
+        description: "Riesiger schwebender Kopf, der Spieler bei Sichtkontakt angreift.",
+        behavior: "Wird aggressiv bei Lichtkontakt.",
+        strategy: "Licht vermeiden und mit Nahkampfwaffen bekämpfen.",
+        threat: "Mittel",
+        reward: "$4.000–$8.000",
+        strength: "8",
+        health: "650"
+      },
+      {
+        name: "Reaper",
+        img: "Screenshot%202025-05-25%20111117.png?raw=true",
+        description: "Kindliche Puppe mit Messern als Armen.",
+        behavior: "Rennt auf Spieler zu und schlägt mit Messern.",
+        strategy: "Angriffen ausweichen und kontern.",
+        threat: "Mittel",
+        reward: "$6.000–$8.000",
+        strength: "7",
+        health: "450"
+      },
+      {
+        name: "Mentalist",
+        img: "Screenshot%202025-05-25%20111149.png?raw=true",
+        description: "Großes Gehirn, das Spieler telekinetisch angreift.",
+        behavior: "Greift aus der Distanz an und teleportiert sich.",
+        strategy: "Schnell nähern und Nahkampfangriffe ausführen.",
+        threat: "Hoch",
+        reward: "$7.000–$9.000",
+        strength: "8",
+        health: "700"
+      }
+    ];
 
-    <!-- Gnome -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20105606.png?raw=true" alt="Gnome" />
-      <h2>Gnome</h2>
-      <p class="info"><strong>Beschreibung:</strong> Kleine Biester, greifen in Gruppen an.</p>
-      <p class="info"><strong>Verhalten:</strong> Zerstören Loot, koordinierter Angriff.</p>
-      <p class="info category">Bedrohung: Niedrig</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Aufheben & werfen<br>
-        <strong>Belohnung:</strong> Keine<br>
-        <strong>Stärke:</strong> 2<br>
-        <strong>Leben:</strong> ~80 HP<br>
-        <strong>Geschwindigkeit:</strong> Mittel<br>
-        <strong>Spawn:</strong> Wohnbereiche<br>
-        <strong>Beute:</strong> Spielzeug, Ressourcen<br>
-      </div>
-    </div>
+    const container = document.getElementById("monsterGrid");
 
-    <!-- Bowie -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20110118.png?raw=true" alt="Bowie" />
-      <h2>Bowie</h2>
-      <p class="info"><strong>Beschreibung:</strong> Stilvoller Stalker bei Aufzügen.</p>
-      <p class="info"><strong>Verhalten:</strong> Wirft Spieler gegen Möbel.</p>
-      <p class="info category">Bedrohung: Mittel</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Abstand, ausweichen<br>
-        <strong>Belohnung:</strong> $2.000–$4.000<br>
-        <strong>Stärke:</strong> 5<br>
-        <strong>Leben:</strong> ~180 HP<br>
-        <strong>Geschwindigkeit:</strong> Mittel<br>
-        <strong>Spawn:</strong> Aufzugsbereiche<br>
-        <strong>Beute:</strong> Persönliche Items<br>
-      </div>
-    </div>
+    monsters.forEach(monster => {
+      const div = document.createElement("div");
+      div.classList.add("monster");
 
-    <!-- Hidden -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20110805.png?raw=true" alt="Hidden" />
-      <h2>Hidden</h2>
-      <p class="info"><strong>Beschreibung:</strong> Fast unsichtbar, entführt Spieler.</p>
-      <p class="info"><strong>Verhalten:</strong> Dunkler Nebel, Fußspuren-Spuren.</p>
-      <p class="info category">Bedrohung: Niedrig</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Nebel beachten, Nahkampf nutzen<br>
-        <strong>Belohnung:</strong> $3.500–$7.000<br>
-        <strong>Stärke:</strong> 6<br>
-        <strong>Leben:</strong> ~200 HP<br>
-        <strong>Geschwindigkeit:</strong> Schnell<br>
-        <strong>Spawn:</strong> Verfallene Flure<br>
-        <strong>Beute:</strong> High-Tier Items<br>
-      </div>
-    </div>
+      div.innerHTML = `
+        <img src="${monster.img}" alt="Bild von ${monster.name}" />
+        <h2>${monster.name}</h2>
+        <div class="info"><span class="category">Beschreibung:</span> ${monster.description}</div>
+        <div class="info"><span class="category">Verhalten:</span> ${monster.behavior}</div>
+        <div class="info"><span class="category">Strategie:</span> ${monster.strategy}</div>
+        <div class="info"><span class="category">Bedrohung:</span> ${monster.threat}</div>
+        <div class="info"><span class="category">Belohnung:</span> ${monster.reward}</div>
+        <div class="stats"><span class="category">Stärke:</span> ${monster.strength} | <span class="category">Leben:</span> ${monster.health}</div>
+      `;
 
-    <!-- Chef -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20110136.png?raw=true" alt="Chef" />
-      <h2>Chef</h2>
-      <p class="info"><strong>Beschreibung:</strong> Froschartig, mit Hackmessern ausgestattet.</p>
-      <p class="info"><strong>Verhalten:</strong> Angriff in Küchenbereichen.</p>
-      <p class="info category">Bedrohung: Mittel</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Ausweichen, kontern<br>
-        <strong>Belohnung:</strong> $2.000–$5.000<br>
-        <strong>Stärke:</strong> 6<br>
-        <strong>Leben:</strong> ~190 HP<br>
-        <strong>Geschwindigkeit:</strong> Mittel-Schnell<br>
-        <strong>Spawn:</strong> Küchen<br>
-        <strong>Beute:</strong> Küchen-Utensilien<br>
-      </div>
-    </div>
+      container.appendChild(div);
+    });
+  </script>
 
-    <!-- Clown -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20110158.png?raw=true" alt="Clown" />
-      <h2>Clown</h2>
-      <p class="info"><strong>Beschreibung:</strong> Horror-Clown mit rasiermesserscharfen Gliedmaßen.</p>
-      <p class="info"><strong>Verhalten:</strong> Kann Spieler sekundenschnell töten.</p>
-      <p class="info category">Bedrohung: Hoch</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Fliehen, keine Konfrontation<br>
-        <strong>Belohnung:</strong> $5.000–$8.000<br>
-        <strong>Stärke:</strong> 9<br>
-        <strong>Leben:</strong> ~300 HP<br>
-        <strong>Geschwindigkeit:</strong> Hoch<br>
-        <strong>Spawn:</strong> Zirkus, Event-Räume<br>
-        <strong>Beute:</strong> Rare Items<br>
-      </div>
-    </div>
-
-    <!-- Rope -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111047.png?raw=true" alt="Rope" />
-      <h2>Rope</h2>
-      <p class="info"><strong>Beschreibung:</strong> Geisterhaftes Wesen, greift bei Blickkontakt an.</p>
-      <p class="info"><strong>Verhalten:</strong> Schreie, Jagd bei direktem Blick.</p>
-      <p class="info category">Bedrohung: Mittel</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Blickkontakt vermeiden, fliehen<br>
-        <strong>Belohnung:</strong> $5.000–$8.000<br>
-        <strong>Stärke:</strong> 7<br>
-        <strong>Leben:</strong> ~220 HP<br>
-        <strong>Geschwindigkeit:</strong> Mittel-Schnell<br>
-        <strong>Spawn:</strong> Dunkle Gänge, Lichteinfall<br>
-        <strong>Beute:</strong> Geist-Items<br>
-      </div>
-    </div>
-    
-    <!-- Headman -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20110852.png?raw=true" alt="Headman" />
-      <h2>Headman</h2>
-      <p class="info"><strong>Beschreibung:</strong> Riesiges schwebendes Kopf-Wesen.</p>
-      <p class="info"><strong>Verhalten:</strong> Greift bei Lichtkontakt an.</p>
-      <p class="info category">Bedrohung: Mittel</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Licht vermeiden, Nahkampf<br>
-        <strong>Belohnung:</strong> $4.000–$8.000<br>
-        <strong>Stärke:</strong> 8<br>
-        <strong>Leben:</strong> ~260 HP<br>
-        <strong>Geschwindigkeit:</strong> Schwebe, langsam<br>
-        <strong>Spawn:</strong> Beleuchtete Räume<br>
-        <strong>Beute:</strong> Lichtbasierte Items<br>
-      </div>
-    </div>
-
-    <!-- Reaper -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111117.png?raw=true" alt="Reaper" />
-      <h2>Reaper</h2>
-      <p class="info"><strong>Beschreibung:</strong> Kindliche Puppe mit Messerarmen.</p>
-      <p class="info"><strong>Verhalten:</strong> Rennt auf Spieler zu, schlägt mit Messern.</p>
-      <p class="info category">Bedrohung: Mittel</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Ausweichen, kontern<br>
-        <strong>Belohnung:</strong> $6.000–$8.000<br>
-        <strong>Stärke:</strong> 7<br>
-        <strong>Leben:</strong> ~210 HP<br>
-        <strong>Geschwindigkeit:</strong> Schnell<br>
-        <strong>Spawn:</strong> Spielzimmer, Kinderzimmer<br>
-        <strong>Beute:</strong> Kinder-Items, Messer<br>
-      </div>
-    </div>
-
-    <!-- Mentalist -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111149.png?raw=true" alt="Mentalist" />
-      <h2>Mentalist</h2>
-      <p class="info"><strong>Beschreibung:</strong> Großes Gehirn mit telekinetischen Kräften.</p>
-      <p class="info"><strong>Verhalten:</strong> Hebt Spieler und wirft sie.</p>
-      <p class="info category">Bedrohung: Mittel</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Ausweichmanöver, Nahkampf<br>
-        <strong>Belohnung:</strong> $3.000–$6.000<br>
-        <strong>Stärke:</strong> 8<br>
-        <strong>Leben:</strong> ~240 HP<br>
-        <strong>Geschwindigkeit:</strong> Mittel<br>
-        <strong>Spawn:</strong> Labore, psychische Räume<br>
-        <strong>Beute:</strong> Psychische Upgrades<br>
-      </div>
-    </div>
-
-    <!-- Peeper -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111235.png?raw=true" alt="Peeper" />
-      <h2>Peeper</h2>
-      <p class="info"><strong>Beschreibung:</strong> Riesiges Auge, lähmt bei Fixieren.</p>
-      <p class="info"><strong>Verhalten:</strong> Hängt über Spieler, lähmt.</p>
-      <p class="info category">Bedrohung: Niedrig</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Sichtlinie unterbrechen<br>
-        <strong>Belohnung:</strong> Keine<br>
-        <strong>Stärke:</strong> –<br>
-        <strong>Leben:</strong> ~100 HP<br>
-        <strong>Geschwindigkeit:</strong> Stationär<br>
-        <strong>Spawn:</strong> Decken, Himmel<br>
-        <strong>Beute:</strong> Keine<br>
-      </div>
-    </div>
-
-    <!-- Rugrat -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111251.png?raw=true" alt="Rugrat" />
-      <h2>Rugrat</h2>
-      <p class="info"><strong>Beschreibung:</strong> Baby-ähnlich, wirft Objekte.</p>
-      <p class="info"><strong>Verhalten:</strong> Zerstört Loot durch Werfen von Gegenständen.</p>
-      <p class="info category">Bedrohung: Niedrig</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Schnell ausschalten<br>
-        <strong>Belohnung:</strong> $1.600–$3.000<br>
-        <strong>Stärke:</strong> 3<br>
-        <strong>Leben:</strong> ~130 HP<br>
-        <strong>Geschwindigkeit:</strong> Mittel<br>
-        <strong>Spawn:</strong> Kinderzimmer, Wohnbereiche<br>
-        <strong>Beute:</strong> Hausrat<br>
-      </div>
-    </div>
-
-    <!-- Shadow Child -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111439.png?raw=true" alt="Shadow Child" />
-      <h2>Shadow Child</h2>
-      <p class="info"><strong>Beschreibung:</strong> Teleportierendes Kind, lauert im Schatten.</p>
-      <p class="info"><strong>Verhalten:</strong> Teleportiert sich, greift überraschend an.</p>
-      <p class="info category">Bedrohung: Niedrig</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Geräusche beobachten, ausweichen<br>
-        <strong>Belohnung:</strong> $2.000–$5.000<br>
-        <strong>Stärke:</strong> 4<br>
-        <strong>Leben:</strong> ~140 HP<br>
-        <strong>Geschwindigkeit:</strong> Schnell, teleportierend<br>
-        <strong>Spawn:</strong> Dunkle Winkel, Ecken<br>
-        <strong>Beute:</strong> Kinder-Items<br>
-      </div>
-    </div>
-
-    <!-- Spewer -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111322.png?raw=true" alt="Spewer" />
-      <h2>Spewer</h2>
-      <p class="info"><strong>Beschreibung:</strong> Schwebend, erbricht Säure.</p>
-      <p class="info"><strong>Verhalten:</strong> Klebt an Spielern, erbricht.</p>
-      <p class="info category">Bedrohung: Niedrig</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Sofort abwerfen, Abstand halten<br>
-        <strong>Belohnung:</strong> $1.000–$4.000<br>
-        <strong>Stärke:</strong> 3<br>
-        <strong>Leben:</strong> ~110 HP<br>
-        <strong>Geschwindigkeit:</strong> Schwebend, langsam<br>
-        <strong>Spawn:</strong> Labor, Gänge<br>
-        <strong>Beute:</strong> Säure, Chemikalien<br>
-      </div>
-    </div>
-
-    <!-- Trudge -->
-    <div class="monster">
-      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111339.png?raw=true" alt="Trudge" />
-      <h2>Trudge</h2>
-      <p class="info"><strong>Beschreibung:</strong> Groß, mit Keule, greift langsam an.</p>
-      <p class="info"><strong>Verhalten:</strong> Zieht Spieler an und schlägt.</p>
-      <p class="info category">Bedrohung: Hoch</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Abstand halten, Möbel meiden<br>
-        <strong>Belohnung:</strong> $5.000<br>
-        <strong>Stärke:</strong> 11<br>
-        <strong>Leben:</strong> ~350 HP<br>
-        <strong>Geschwindigkeit:</strong> Langsam<br>
-        <strong>Spawn:</strong> Hauptgange, offene Räume<br>
-        <strong>Beute:</strong> Seltene Waffen<br>
-      </div>
-    </div>
-
-    <!-- Banger -->
-    <div class="monster">
-      <img src="https://www.destructoid.com/wp-content/uploads/2025/03/repo-monster-banger.jpg?w=768" alt="Banger" />
-      <h2>Banger</h2>
-      <p class="info"><strong>Beschreibung:</strong> Explosiver Mutant, selbstauslösend.</p>
-      <p class="info"><strong>Verhalten:</strong> Zündet bei Nähe, kann andere verletzen.</p>
-      <p class="info category">Bedrohung: Niedrig</p>
-      <div class="stats">
-        <strong>Strategie:</strong> Aufheben & wegwerfen<br>
-        <strong>Belohnung:</strong> Keine<br>
-        <strong>Stärke:</strong> 2<br>
-        <strong>Leben:</strong> ~90 HP<br>
-        <strong>Geschwindigkeit:</strong> Mittel<br>
-        <strong>Spawn:</strong> Gewölbe, Lagerbereiche<br>
-        <strong>Beute:</strong> Keine / Explosivstoffe<br>
-      </div>
-    </div>
-
-  </div>
 </body>
 </html>
-
