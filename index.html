@@ -7,15 +7,15 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #F5F1EA; /* sehr helles Creme-Beige */
-      color: #3B3B3B; /* dunkles Anthrazit */
+      background-color: #F5F1EA;
+      color: #3B3B3B;
       padding: 20px;
       max-width: 1400px;
       margin: auto;
     }
     h1 {
       text-align: center;
-      color: #8B5E3C; /* warmer Mittelbraunton */
+      color: #8B5E3C;
       margin-bottom: 40px;
     }
     .monster-grid {
@@ -24,8 +24,8 @@
       gap: 20px;
     }
     .monster {
-      background-color: #B0A79F; /* sanftes warmes Grau */
-      border: 1px solid #4B342B; /* dunkles Schokoladenbraun */
+      background-color: #B0A79F;
+      border: 1px solid #4B342B;
       border-radius: 10px;
       padding: 20px;
       display: flex;
@@ -49,13 +49,12 @@
       color: #8B5E3C;
     }
     .info {
-      background-color: #F5F1EA; /* Hintergrund für Textinfo */
+      background-color: #F5F1EA;
       border-left: 4px solid #8B5E3C;
       padding-left: 10px;
       margin-bottom: 10px;
       font-size: 0.95em;
       line-height: 1.4;
-      color: #3B3B3B;
     }
     .category {
       font-weight: bold;
@@ -70,213 +69,63 @@
 <body>
 
   <h1>REPO – Monster Übersicht</h1>
-  <div class="monster-grid" id="monsterGrid"></div>
+  <div class="monster-grid">
 
-  <script>
-    const monsters = [
-      {
-        name: "Animal",
-        img: "Screenshot%202025-05-25%20105331.png?raw=true",
-        description: "Ein wildes, humanoides Wesen mit verbesserten Sinnen.",
-        behavior: "Jagt Spieler in dunklen Korridoren.",
-        strategy: "Auf Distanz halten und bei Bedarf mit Nahkampfwaffen bekämpfen.",
-        threat: "Niedrig",
-        reward: "$2.000–$4.000",
-        strength: "3"
-      },
-      {
-        name: "Apex Predator",
-        img: "Screenshot%202025-05-25%20105423.png?raw=true",
-        description: "Scheint zunächst wie eine harmlose gelbe Ente, verwandelt sich jedoch bei Bedrohung in ein aggressives Wesen.",
-        behavior: "Folgt dem Spieler und verwandelt sich bei Berührung oder Angriff.",
-        strategy: "Ignorieren oder schnell ausweichen, um die aggressive Form zu vermeiden.",
-        threat: "Mittel",
-        reward: "$2.000–$3.000",
-        strength: "4"
-      },
-      {
-        name: "Huntsman",
-        img: "Screenshot%202025-05-25%20105545.png?raw=true",
-        description: "Blinder Jäger mit Schrotflinte.",
-        behavior: "Reagiert auf Geräusche und kann Spieler mit einem Schuss töten.",
-        strategy: "Still bleiben oder Geräusche nutzen, um ihn abzulenken.",
-        threat: "Hoch",
-        reward: "$3.000–$7.000",
-        strength: "7"
-      },
-      {
-        name: "Gnome",
-        img: "Screenshot%202025-05-25%20105606.png?raw=true",
-        description: "Kleine Kreaturen, die Spieler und ihre Beute angreifen.",
-        behavior: "Zerstören Beute und greifen in Gruppen an.",
-        strategy: "Aufheben und werfen, um sie zu eliminieren.",
-        threat: "Niedrig",
-        reward: "Keine",
-        strength: "2"
-      },
-      {
-        name: "Bowie",
-        img: "Screenshot%202025-05-25%20110118.png?raw=true",
-        description: "Formell gekleideter Stalker, der in der Nähe von Aufzugsschächten erscheint.",
-        behavior: "Verursacht Chaos, indem er Spieler auf scharfe Möbel wirft.",
-        strategy: "Auf Abstand bleiben und Angriffen ausweichen.",
-        threat: "Mittel",
-        reward: "$2.000–$4.000",
-        strength: "5"
-      },
-      {
-        name: "Hidden",
-        img: "Screenshot%202025-05-25%20110805.png?raw=true",
-        description: "Fast unsichtbares Wesen, das Spieler entführt.",
-        behavior: "Projiziert dunklen Nebel und hinterlässt Fußspuren.",
-        strategy: "Auf Hinweise achten und mit Nahkampfwaffen angreifen.",
-        threat: "Niedrig",
-        reward: "$3.500–$7.000",
-        strength: "6"
-      },
-      {
-        name: "Chef",
-        img: "Screenshot%202025-05-25%20110136.png?raw=true",
-        description: "Froschähnliches Wesen, das in Küchenbereichen mit Hackmessern agiert.",
-        behavior: "Greift mit Hackmessern an und kann Spieler schwer verletzen.",
-        strategy: "Angriffe ausweichen und bei Gelegenheit kontern.",
-        threat: "Mittel",
-        reward: "$2.000–$5.000",
-        strength: "6"
-      },
-      {
-        name: "Clown",
-        img: "Screenshot%202025-05-25%20110158.png?raw=true",
-        description: "Lachendes Horrorwesen mit ausfahrbaren, rasiermesserscharfen Gliedmaßen.",
-        behavior: "Extrem gefährlich und kann Spieler in Sekundenschnelle töten.",
-        strategy: "Schnell fliehen und direkte Konfrontation vermeiden.",
-        threat: "Hoch",
-        reward: "$5.000–$8.000",
-        strength: "9"
-      },
-      {
-        name: "Rope",
-        img: "Screenshot%202025-05-25%20111047.png?raw=true",
-        description: "Geisterähnliches Wesen, das bei Blickkontakt angreift.",
-        behavior: "Schreit und jagt Spieler bei direktem Blickkontakt.",
-        strategy: "Blickkontakt vermeiden und fliehen.",
-        threat: "Mittel",
-        reward: "$5.000–$8.000",
-        strength: "7"
-      },
-      {
-        name: "Headman",
-        img: "Screenshot%202025-05-25%20110852.png?raw=true",
-        description: "Riesiger schwebender Kopf, der Spieler bei Sichtkontakt angreift.",
-        behavior: "Wird aggressiv bei Lichtkontakt.",
-        strategy: "Licht vermeiden und mit Nahkampfwaffen bekämpfen.",
-        threat: "Mittel",
-        reward: "$4.000–$8.000",
-        strength: "8"
-      },
-      {
-        name: "Reaper",
-        img: "Screenshot%202025-05-25%20111117.png?raw=true",
-        description: "Kindliche Puppe mit Messern als Armen.",
-        behavior: "Rennt auf Spieler zu und schlägt mit Messern.",
-        strategy: "Angriffen ausweichen und kontern.",
-        threat: "Mittel",
-        reward: "$6.000–$8.000",
-        strength: "7"
-      },
-      {
-        name: "Mentalist",
-        img: "Screenshot%202025-05-25%20111149.png?raw=true",
-        description: "Großes Gehirn, das Spieler telekinetisch angreift.",
-        behavior: "Hebt Spieler und Beute an und schleudert sie zu Boden.",
-        strategy: "Schnell ausweichen und Nahkampfwaffen einsetzen.",
-        threat: "Mittel",
-        reward: "$3.000–$6.000",
-        strength: "8"
-      },
-      {
-        name: "Peeper",
-        img: "https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111235.png?raw=true",
-        description: "Riesiges Auge, das Spieler fixiert und lähmt.",
-        behavior: "Erscheint an Decken oder im Himmel und immobilisiert Spieler.",
-        strategy: "Sichtlinie unterbrechen, um der Lähmung zu entgehen.",
-        threat: "Niedrig",
-        reward: "Keine",
-        strength: "~"
-      },
-      {
-        name: "Rugrat",
-        img: "https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111251.png?raw=true",
-        description: "Babyähnliches Wesen, das Gegenstände auf Spieler wirft.",
-        behavior: "Zerstört Beute durch Werfen von Objekten.",
-        strategy: "Schnell eliminieren, um Beute zu schützen.",
-        threat: "Niedrig",
-        reward: "$1.600–$3.000",
-        strength: "3"
-      },
-      {
-        name: "Shadow Child",
-        img: "https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111439.png?raw=true",
-        description: "Teleportierendes Kind, das Spieler überrascht.",
-        behavior: "Lacht und teleportiert sich, um Spieler anzugreifen.",
-        strategy: "Auf Geräusche achten und bereit sein, auszuweichen.",
-        threat: "Niedrig",
-        reward: "$2.000–$5.000",
-        strength: "4"
-      },
-      {
-        name: "Spewer",
-        img: "https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111322.png?raw=true",
-        description: "Schwebendes Wesen, das Säure erbricht.",
-        behavior: "Erbricht auf Spieler und kann sich an sie heften.",
-        strategy: "Schnell entfernen und Abstand halten.",
-        threat: "Niedrig",
-        reward: "$1.000–$4.000",
-        strength: "3"
-      },
-      {
-        name: "Trudge",
-        img: "https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20111339.png?raw=true",
-        description: "Großes Wesen mit Keule, das Spieler anzieht und angreift.",
-        behavior: "Langsam, aber mächtig; kann Spieler unter Möbeln erreichen.",
-        strategy: "Auf Abstand bleiben und Verstecke meiden.",
-        threat: "Hoch",
-        reward: "$5.000",
-        strength: "11"
-      },
-      {
-        name: "Banger",
-        img: "https://www.destructoid.com/wp-content/uploads/2025/03/repo-monster-banger.jpg?w=768",
-        description: "Explosives Mutantenwesen, das sich bei Annäherung entzündet.",
-        behavior: "Detoniert nach kurzer Zeit, kann andere Monster beschädigen.",
-        strategy: "Aufheben und wegwerfen, um Explosion zu vermeiden.",
-        threat: "Niedrig",
-        reward: "Keine",
-        strength: "2"
-      }
-    ];
+    <div class="monster">
+      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20105331.png?raw=true" alt="Animal" />
+      <h2>Animal</h2>
+      <p class="info"><strong>Beschreibung:</strong> Ein wildes, humanoides Wesen mit verbesserten Sinnen.</p>
+      <p class="info"><strong>Verhalten:</strong> Jagt Spieler in dunklen Korridoren.</p>
+      <p class="info category">Kategorie (Bedrohung): Niedrig</p>
+      <p class="stats">
+        <strong>Strategie:</strong> Auf Distanz halten und mit Nahkampfwaffen bekämpfen.<br>
+        <strong>Belohnung:</strong> $2.000–$4.000<br>
+        <strong>Stärkeanforderung:</strong> 3<br>
+        <strong>Leben:</strong> Mittel<br>
+        <strong>Geschwindigkeit:</strong> Schnell<br>
+        <strong>Spawn-Ort:</strong> Kellerbereiche<br>
+        <strong>Beutepräferenz:</strong> Keine
+      </p>
+    </div>
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const container = document.getElementById("monsterGrid");
+    <div class="monster">
+      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20105423.png?raw=true" alt="Apex Predator" />
+      <h2>Apex Predator</h2>
+      <p class="info"><strong>Beschreibung:</strong> Scheint wie eine harmlose Ente, mutiert aber bei Angriff.</p>
+      <p class="info"><strong>Verhalten:</strong> Verwandelt sich bei Berührung oder Angriff.</p>
+      <p class="info category">Kategorie (Bedrohung): Mittel</p>
+      <p class="stats">
+        <strong>Strategie:</strong> Ignorieren oder schnell ausweichen.<br>
+        <strong>Belohnung:</strong> $2.000–$3.000<br>
+        <strong>Stärkeanforderung:</strong> 4<br>
+        <strong>Leben:</strong> Niedrig<br>
+        <strong>Geschwindigkeit:</strong> Sehr schnell (nach Verwandlung)<br>
+        <strong>Spawn-Ort:</strong> Offene Flächen<br>
+        <strong>Beutepräferenz:</strong> Spieler
+      </p>
+    </div>
 
-      monsters.forEach(monster => {
-        const div = document.createElement("div");
-        div.className = "monster";
-        div.innerHTML = `
-          <img src="${monster.img.startsWith('http') ? monster.img : 'https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/' + monster.img}" alt="${monster.name}" />
-          <h2>${monster.name}</h2>
-          <p class="info"><strong>Beschreibung:</strong> ${monster.description}</p>
-          <p class="info"><strong>Verhalten:</strong> ${monster.behavior}</p>
-          <p class="info category">Kategorie (Bedrohung): ${monster.threat}</p>
-          <p class="stats">
-            <strong>Strategie:</strong> ${monster.strategy}<br>
-            <strong>Belohnung:</strong> ${monster.reward}<br>
-            <strong>Stärkeanforderung:</strong> ${monster.strength}
-          </p>
-        `;
-        container.appendChild(div);
-      });
-    });
-  </script>
+    <div class="monster">
+      <img src="https://github.com/karl-marx-und-friedrich-engels/REPO/blob/main/Screenshot%202025-05-25%20105545.png?raw=true" alt="Huntsman" />
+      <h2>Huntsman</h2>
+      <p class="info"><strong>Beschreibung:</strong> Blinder Jäger mit Schrotflinte.</p>
+      <p class="info"><strong>Verhalten:</strong> Reagiert auf Geräusche und kann Spieler mit einem Schuss töten.</p>
+      <p class="info category">Kategorie (Bedrohung): Hoch</p>
+      <p class="stats">
+        <strong>Strategie:</strong> Still bleiben oder Geräusche zur Ablenkung nutzen.<br>
+        <strong>Belohnung:</strong> $3.000–$7.000<br>
+        <strong>Stärkeanforderung:</strong> 7<br>
+        <strong>Leben:</strong> Hoch<br>
+        <strong>Geschwindigkeit:</strong> Langsam<br>
+        <strong>Spawn-Ort:</strong> Industriehallen<br>
+        <strong>Beutepräferenz:</strong> Spieler mit Geräuschen
+      </p>
+    </div>
+
+    <!-- Weitere Monster hier einfügen -->
+
+  </div>
+
 </body>
 </html>
+
